@@ -1,0 +1,38 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_film_rating
+    description: "Example of dimensions model"
+    columns:
+      - name: film_id
+        data_tests:
+          - unique
+          - not_null
+      - name: rating
+        data_tests:
+          - accepted_values:
+              values: ["R", "G", "PG-13", "PG", "NC-17"]
+      - name: language_id
+        data_tests:
+          - accepted_values:
+              values: [1, 2]
+              quote: false

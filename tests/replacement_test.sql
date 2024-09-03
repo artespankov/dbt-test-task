@@ -1,0 +1,1 @@
+select * from film where replacement_cost > {{var('threshold_rpl')}}

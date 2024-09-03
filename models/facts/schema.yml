@@ -1,0 +1,28 @@
+
+version: 2
+
+models:
+  - name: rental_fact
+    description: "Rental fact model"
+    columns:
+      - name: rental_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: payment_fact
+    description: "Payment fact model"
+    columns:
+      - name: payment_id
+        data_tests:
+          - unique
+          - not_null
+
+sources:
+  - name: public
+    database: dwh
+    schema: public
+    tables:
+      - name: rental
+      - name: inventory
+      - name: payment

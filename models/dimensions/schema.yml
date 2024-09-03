@@ -1,0 +1,60 @@
+
+version: 2
+
+models:
+  - name: date_dim
+    description: "Date dimensions model"
+    columns:
+      - name: date_dim_id
+        data_tests:
+          - unique
+          - not_null
+
+#  - name: customer_dim
+#    description: "Customer dimensions model"
+#    columns:
+#      - name: customer_id
+#        data_tests:
+#          - unique
+#          - not_null
+
+  - name: staff_dim
+    description: "Staff dimensions model"
+    columns:
+      - name: staff_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: store_dim
+    description: "Store dimensions model"
+    columns:
+      - name: store_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: film_dim
+    description: "Film dimensions model"
+    columns:
+      - name: film_id
+        data_tests:
+          - unique
+          - not_null
+
+
+sources:
+  - name: public
+    database: dwh
+    schema: public
+    tables:
+      - name: customer
+      - name: address
+      - name: city
+      - name: country
+      - name: staff
+      - name: store
+      - name: film
+      - name: category
+      - name: film_category
+      - name: language
