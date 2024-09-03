@@ -1,0 +1,22 @@
+YAML files
+
+1. /home/user/profiles.yml - target schema for data transformation via DBT
+2. /project/dbt_project.yml
+- paths (models, files) so dbt can search
+- redefine schema
+3. /project/models/schema.yml
+
+
+dbt run //all the models
+dbt run -m example // the whole dir
+dbt run -m dimensions.dim_date
+
+
+dbt test // tests the result (rel), not the source (stg), do dbt run first to materialize the data
+
+macros // override default dbt behavior globally
+
+https://hub.getdbt.com/
+dbt deps // install packages listed in packages.yml
+
+hoooks // hook runs before/after dbt module run
